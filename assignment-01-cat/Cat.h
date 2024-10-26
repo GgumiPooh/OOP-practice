@@ -6,9 +6,9 @@ using namespace std;
 
 class Cat {
 public:
-    Cat(const char* name);
-    Cat(const char* name, int age);
-    Cat(const char* name, int age, bool sex);
+    Cat(const char* _name);
+    Cat(const char* _name, int _age);
+    Cat(const char* _name, int _age, bool _sex);
     Cat(const Cat& cat);
     Cat(Cat&& cat);
     ~Cat();
@@ -20,7 +20,7 @@ public:
     const char* get_name();
     void print_info();
 private:
-    const char* name;
+    char* name;
     int age;
     bool sex;
 };
