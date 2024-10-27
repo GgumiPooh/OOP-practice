@@ -33,27 +33,25 @@ Cat::Cat(const char* _name, int _age, bool _sex)
 
 Cat::Cat(const Cat& cat)
 {
+    name = new char(*cat.name);
     
 }
-Cat::Cat(Cat&& cat)
+Cat::Cat(Cat&& cat) : name(cat.name)
 {
+   cat.name = nullptr;
 }
 Cat::~Cat(){}
 
 Cat& Cat::operator=(const Cat& cat) {
-    name = new char[strlen(cat.name)+1];
-    name = cat.name;
-    age = cat.age;
-    sex = cat.sex;
+    delete name;
+    name = new char(*cat.name);
+    return *this;
 }
 Cat& Cat::operator=(Cat&& cat) {
-    this->name = new char[strlen(cat.name)+1];
+    delete name;
     name = cat.name;
-    age = cat.age;
-    sex = cat.sex;
-    cat.name = NULL;
-    cat.age = -1;
-    cat.sex = 0;
+    cat.name = nullptr;
+    return *this;
 
     
 }
