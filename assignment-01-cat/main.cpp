@@ -16,7 +16,6 @@ int main() {
     cat3.print_info();
 
     Cat cat4 = move(cat2);
-    cout << "aaaaa";
     cat4.print_info();
     
     cat1 = cat4;
