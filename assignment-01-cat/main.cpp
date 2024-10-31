@@ -1,11 +1,12 @@
 #include <iostream>
-#include "Cat.h"
+#include "cat.h"
 
 #define endl '\n'
 
 using namespace std;
 
-int main() {
+int main()
+{
     Cat cat1("Nabi");
     cat1.print_info();
 
@@ -17,7 +18,7 @@ int main() {
 
     Cat cat4 = move(cat2);
     cat4.print_info();
-    
+
     cat1 = cat4;
     cat1.print_info();
 
