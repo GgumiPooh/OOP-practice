@@ -1,26 +1,35 @@
-#pragma once
+#include "Animal.h"
 
-#include <iostream>
-
-using namespace std;
-
-class Cat {
+class Cat : public Animal {
 public:
-    Cat(const char* name);
-    Cat(const char* name, int age);
-    Cat(const char* name, int age, bool sex);
-    Cat(const Cat& cat);
-    Cat(Cat&& cat);
-    ~Cat();
+    void print_info() override
+    {
+        cout << "고양이 이름 : " << name << "\n";
+        cout << "고양이 나이 : " << age << "\n";
+        cout << "고양이 성별 : " << sex << "\n";
+    }
 
-    Cat& operator=(const Cat& cat);
-    Cat& operator=(Cat&& cat);
+    Cat(const char* _name): Animal(_name) { };
+    Cat(const char* _name, int _age) : Animal(_name, _age) { };
+    Cat(const char* _name, int _age, bool _sex) : Animal(_name, _age, _sex) { };
+    Cat(const Cat& cat): Animal(cat) { };
+    Cat(Cat&& cat): Animal(cat) { };
+    ~Cat() override{ };
 
-    bool set_name(const char* name);
-    const char* get_name();
-    void print_info();
-private:
-    const char* name;
-    int age;
-    bool sex;
+    Cat& operator=(const Cat& cat) { 
+        Animal::operator=(cat);
+        return *this;
+    };
+
+    Cat& operator=(Cat&& cat) { 
+        Animal::operator=(cat);
+        return *this;
+    };
+
+    bool set_name(const char* name) override {
+        Animal::set_name(name);
+    };
+    const char* get_name() override {
+        return Animal::get_name();
+    };
 };
