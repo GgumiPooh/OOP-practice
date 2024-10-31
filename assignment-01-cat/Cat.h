@@ -18,14 +18,18 @@ public:
 
     Cat& operator=(const Cat& cat) { 
         Animal::operator=(cat);
+        return *this;
     };
 
-    Cat& operator=(Cat&& cat) { };
+    Cat& operator=(Cat&& cat) { 
+        Animal::operator=(cat);
+        return *this;
+    };
 
     bool set_name(const char* name) override {
         Animal::set_name(name);
     };
     const char* get_name() override {
-        Animal::get_name();
+        return Animal::get_name();
     };
 };

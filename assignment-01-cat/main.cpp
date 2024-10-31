@@ -1,6 +1,6 @@
 #include <iostream>
-#include "cat.h"
-
+#include "Cat.h"
+#include "Dog.h"
 #define endl '\n'
 
 using namespace std;
@@ -28,6 +28,8 @@ int main()
     cat1.set_name("Ggumi");
     cat1.print_info();
     cout << cat1.get_name() << endl;
+    Dog dog("pooh");
 
+    dog.print_info();
     return 0;
 }
